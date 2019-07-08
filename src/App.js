@@ -69,7 +69,7 @@ function App() {
             onClick={() => {
               setHomeScore(homeScore * 0);
               setAwayScore(awayScore * 0);
-              setToGo(toGo / toGo);
+              setToGo(1);
               setBallOn(ballOn / ballOn);
               setDown(down / down);
               setQuarter(quarter / quarter);
@@ -93,14 +93,13 @@ function App() {
             onClick={() => {setBallOnStatus(!ballOnStatus)}}
             >Set Ball On
           </button>
-          <button className="otherButton">Set Time</button>
+          <button className="otherButton" onClick={() => {setTimeStatus(!timeStatus)}}>Set Time</button>
           <button className="otherButton">Stop/Start Time</button>
         </div>
       </section>
       <section className="forms">
         {toGoStatus ? <ToGoForm toGo={toGo} setToGo={setToGo} /> : null}
         {ballOnStatus ? <BallOnForm ballOn={ballOn} setBallOn={setBallOn} /> : null}
-        {toGoStatus ? <ToGoForm toGo={toGo} setToGo={setToGo} /> : null}
         {timeStatus ? <SetTimeForm time={time} setTime={setTime} /> : null}
 
 
