@@ -1,7 +1,7 @@
 import React from "react";
-import "./App.css";
+import "../App";
 
-const BottomRow = (props) => {
+const BottomRow = props => {
   return (
     <div className="bottomRow">
       <div className="down">

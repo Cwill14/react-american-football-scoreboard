@@ -5,7 +5,7 @@
 
 .scoreboard {
   width: 58%;
-  margin: 10rem auto;
+  margin: 10rem auto 1rem;
   background-color: #0b5402;
   color: white;
   border-radius: 0.5rem;
@@ -107,17 +107,25 @@
 }
 
 .buttons {
-  width: 50%;
+  width: 66%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .homeButtons__touchdown,
 .homeButtons__fieldGoal,
+.homeButtons__extraPoint,
+.homeButtons__customHomeScore,
 .awayButtons__touchdown,
 .awayButtons__fieldGoal,
+.awayButtons__extraPoint,
+.awayButtons__customAwayScore,
 .otherButton {
   margin: 1rem;
   border-radius: 4px;
+}
+form {
+  margin: 0 auto;
+  width: 50%;
 }

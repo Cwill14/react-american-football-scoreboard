@@ -1,25 +1,26 @@
 //TODO: STEP 1 - Import the useState hook.
 import React,  { useState } from "react";
 import "./App.css";
-import BottomRow from "./BottomRow";
-import ToGoForm from "./ToGoForm";
+import BottomRow from "./Components/BottomRow";
+import ToGoForm from "./Components/ToGoForm";
+import BallOnForm from "./Components/BallOnForm";
+import SetTimeForm from "./Components/SetTimeForm";
+
 
 function App() {
-  //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
+  //TODO: STEP 2 - Establish your application's state with some useState hooks.  You'll need one for the home score and another for the away score.
   const [homeScore, setHomeScore] = useState(0);
   const [awayScore, setAwayScore] = useState(0);
   const [down, setDown] = useState(1);
   const [quarter, setQuarter] = useState(1);
-  const [toGo, setToGo] = useState(6);
+  const [toGo, setToGo] = useState(5);
+  const [toGoStatus, setToGoStatus] = useState(false);
   const [ballOn, setBallOn] = useState(35);
-  // const {toGoFormStatus, toggleToGoStatus} = useState(false);
-  // const renderToGoForm = false;
+  const [ballOnStatus, setBallOnStatus] = useState(false);
+  const [time, setTime] = useState(10.00);
+  const [timeStatus, setTimeStatus] = useState(false);
 
-  // const toggleToGoForm = () => {
-  //   toggleToGoStatus(!toGoFormStatus);
-  //   toGoFormStatus ? !renderToGoForm : null;
-  // }
-  
+ 
 
   return (
     <div className="container">
@@ -32,7 +33,8 @@ function App() {
 
             <div className="home__score">{homeScore}</div>
           </div>
-          <div className="timer">00:03</div>
+          <div className="timer">{time}</div>
+          {/* <div className="timer">00:03</div> */}
           <div className="away">
             <h2 className="away__name">Tigers</h2>
             <div className="away__score">{awayScore}</div>
@@ -45,12 +47,16 @@ function App() {
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
           <button className="homeButtons__touchdown" onClick={() => {setHomeScore(homeScore + 6)}}>Home Touchdown</button>
           <button className="homeButtons__fieldGoal" onClick={() => {setHomeScore(homeScore + 3)}}>Home Field Goal</button>
-          <button className="homeButtons_extraPoint" onClick={() => {setHomeScore(homeScore + 1)}}>Home Extra Point</button>
+          <button className="homeButtons__extraPoint" onClick={() => {setHomeScore(homeScore + 1)}}>Home Extra Point</button>
+          <button className="homeButtons__customHomeScore" onClick={() => {setHomeScore(homeScore + 1)}}>Set Home Score</button>
+
         </div>
         <div className="awayButtons">
           <button className="awayButtons__touchdown" onClick={() => {setAwayScore(awayScore + 6)}}>Away Touchdown</button>
           <button className="awayButtons__fieldGoal" onClick={() => {setAwayScore(awayScore + 3)}}>Away Field Goal</button>
-          <button className="awayButtons_extraPoint"onClick={() => {setAwayScore(awayScore + 1)}}>Away Extra Point</button>
+          <button className="awayButtons__extraPoint"onClick={() => {setAwayScore(awayScore + 1)}}>Away Extra Point</button>
+          <button className="awayButtons__customAwayScore" onClick={() => {setAwayScore(awayScore + 1)}}>Set Away Score</button>
+
         </div>
         <div className="otherButtons">
           <button className="otherButton" onClick={() => {
@@ -67,6 +73,7 @@ function App() {
               setBallOn(ballOn / ballOn);
               setDown(down / down);
               setQuarter(quarter / quarter);
+              // setTime(time * 0);
               }}
             >Reset Scoreboard
           </button>
@@ -78,17 +85,25 @@ function App() {
           </button>
           <button 
             className="otherButton" 
-            // onClick={() => toggleToGoForm()}
+            onClick={() => {setToGoStatus(!toGoStatus)}}
             >Set To Go
           </button>
           <button 
             className="otherButton" 
-            // onClick={}
+            onClick={() => {setBallOnStatus(!ballOnStatus)}}
             >Set Ball On
           </button>
-
-          {/* {renderToGoForm ? <ToGoForm /> : null} */}
+          <button className="otherButton">Set Time</button>
+          <button className="otherButton">Stop/Start Time</button>
         </div>
+      </section>
+      <section className="forms">
+        {toGoStatus ? <ToGoForm toGo={toGo} setToGo={setToGo} /> : null}
+        {ballOnStatus ? <BallOnForm ballOn={ballOn} setBallOn={setBallOn} /> : null}
+        {toGoStatus ? <ToGoForm toGo={toGo} setToGo={setToGo} /> : null}
+        {timeStatus ? <SetTimeForm time={time} setTime={setTime} /> : null}
+
+
       </section>
     </div>
   );
