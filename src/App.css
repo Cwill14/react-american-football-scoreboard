@@ -136,6 +136,8 @@
 .awayButtons__safety,
 .homeButtons__timeout,
 .awayButtons__timeout,
+.homeButtons__setTimeout,
+.awayButtons__setTimeout,
 .otherButton {
   margin: 1rem;
   border-radius: 4px;

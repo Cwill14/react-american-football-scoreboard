@@ -9,6 +9,8 @@ import HomeNameForm from "./Components/HomeNameForm";
 import AwayNameForm from "./Components/AwayNameForm";
 import HomeScoreForm from "./Components/HomeScoreForm";
 import AwayScoreForm from "./Components/AwayScoreForm";
+import SetHomeTimeoutsForm from "./Components/SetHomeTimeoutsForm";
+import SetAwayTimeoutsForm from "./Components/SetAwayTimeoutsForm";
 
 
 function App() {
@@ -19,7 +21,7 @@ function App() {
   const [quarter, setQuarter] = useState(1);
   const [toGo, setToGo] = useState(10);
   const [toGoStatus, setToGoStatus] = useState(false);
-  const [ballOn, setBallOn] = useState(1);
+  const [ballOn, setBallOn] = useState(35);
   const [ballOnStatus, setBallOnStatus] = useState(false);
   const [time, setTime] = useState(900);
   const [timeStatus, setTimeStatus] = useState(false);
@@ -32,6 +34,9 @@ function App() {
   const [awayScoreStatus, setAwayScoreStatus] = useState(false);
   const [homeTimeouts, setHomeTimeouts] = useState(3);
   const [awayTimeouts, setAwayTimeouts] = useState(3);
+  const [homeTimeoutsStatus, setHomeTimeoutsStatus] = useState(false);
+  const [awayTimeoutsStatus, setAwayTimeoutsStatus] = useState(false);
+
   
   useEffect(() => {
     let interval = null;
@@ -40,6 +45,9 @@ function App() {
         setTime(time => time - 1);
       }, 1000);
     } else if (!timeStatus && time !== 0) {
+      clearInterval(interval);
+    } else if (timeStatus && time === 0) {
+      setTimeStatus(false);
       clearInterval(interval);
     }
     return () => clearInterval(interval);
@@ -74,6 +82,7 @@ function App() {
           <button className="homeButtons__extraPoint gray" onClick={() => {setHomeScore(homeScore + 1)}}>Home Extra Point</button>
           <button className="homeButtons__safety gray" onClick={() => {setHomeScore(homeScore + 2)}}>Home Safety</button>
           <button className="homeButtons__timeout gray" onClick={() => {setHomeTimeouts(homeTimeouts > 0 ? homeTimeouts - 1 : 0)}}>Use Home Timeout</button>
+          <button className="homeButtons__setTimeout gray" onClick={() => {setHomeTimeoutsStatus(!homeTimeoutsStatus)}}>Set Home Timeouts</button>
           <button className="homeButtons__customHomeScore gray" onClick={() => {setHomeScoreStatus(!homeScoreStatus)}}>Set Home Score</button>
           <button className="homeButtons__homeName gray" onClick={() => {setHomeNameStatus(!homeNameStatus)}} >Set Home Name</button>
         </div>
@@ -83,6 +92,7 @@ function App() {
           <button className="awayButtons__extraPoint orange"onClick={() => {setAwayScore(awayScore + 1)}}>Away Extra Point</button>
           <button className="awayButtons__safety orange" onClick={() => {setAwayScore(awayScore + 2)}}>Away Safety</button>
           <button className="awayButtons__timeout orange" onClick={() => {setAwayTimeouts(awayTimeouts > 0 ? awayTimeouts - 1 : 0)}}>Use Away Timeout</button>
+          <button className="awayButtons__setTimeout orange" onClick={() => {setAwayTimeoutsStatus(!awayTimeoutsStatus)}}>Set Away Timeouts</button>
           <button className="awayButtons__customAwayScore orange" onClick={() => {setAwayScoreStatus(!awayScoreStatus)}}>Set Away Score</button>
           <button className="awayButtons__awayName orange" onClick={() => setAwayNameStatus(!awayNameStatus)}>Set Away Name</button>
         </div>
@@ -118,13 +128,21 @@ function App() {
             setAwayScore(awayScore * 0);
             }} >Reset Scores
           </button>
+          <button className="otherButton scary" onClick={() => {
+            setToGo(10);
+            }} >Reset To Go
+          </button>
+          <button className="otherButton scary" onClick={() => {
+            setBallOn(35);
+            }} >Reset Ball On
+          </button>
           <button 
             className="otherButton scary"
             onClick={() => {
               setHomeScore(homeScore * 0);
               setAwayScore(awayScore * 0);
               setToGo(10);
-              setBallOn(1);
+              setBallOn(35);
               setDown(1);
               setQuarter(1);
               setHomeName("Home");
@@ -146,6 +164,8 @@ function App() {
         {awayNameStatus ? <AwayNameForm setAwayName={setAwayName} setAwayNameStatus={setAwayNameStatus} /> : null}
         {homeScoreStatus ? <HomeScoreForm setHomeScore={setHomeScore} setHomeScoreStatus={setHomeScoreStatus} /> : null}
         {awayScoreStatus ? <AwayScoreForm setAwayScore={setAwayScore} setAwayScoreStatus={setAwayScoreStatus} /> : null}
+        {homeTimeoutsStatus ? <SetHomeTimeoutsForm setHomeTimeouts={setHomeTimeouts} setHomeTimeoutsStatus={setHomeTimeoutsStatus} /> : null}
+        {awayTimeoutsStatus ? <SetAwayTimeoutsForm setAwayTimeouts={setAwayTimeouts} setAwayTimeoutsStatus={setAwayTimeoutsStatus} /> : null}
       </section>
     </div>
   );
