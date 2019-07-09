@@ -5,6 +5,8 @@ import BottomRow from "./Components/BottomRow";
 import ToGoForm from "./Components/ToGoForm";
 import BallOnForm from "./Components/BallOnForm";
 import SetTimeForm from "./Components/SetTimeForm";
+import HomeNameForm from "./Components/HomeNameForm";
+import AwayNameForm from "./Components/AwayNameForm";
 
 
 function App() {
@@ -15,19 +17,22 @@ function App() {
   const [quarter, setQuarter] = useState(1);
   const [toGo, setToGo] = useState(1);
   const [toGoStatus, setToGoStatus] = useState(false);
-  const [ballOn, setBallOn] = useState(35);
+  const [ballOn, setBallOn] = useState(50);
   const [ballOnStatus, setBallOnStatus] = useState(false);
   const [time, setTime] = useState(10.00);
   const [timeStatus, setTimeStatus] = useState(false);
+  const [homeName, setHomeName] = useState("Home");
+  const [homeNameStatus, setHomeNameStatus] = useState(false);
+  const [awayName, setAwayName] = useState("Away");
+  const [awayNameStatus, setAwayNameStatus] = useState(false);
 
- 
 
   return (
     <div className="container">
       <section className="scoreboard">
         <div className="topRow">
           <div className="home">
-            <h2 className="home__name">Lions</h2>
+            <h2 className="home__name">{homeName}</h2>
 
             {/* TODO STEP 3 - We need to change the hardcoded values in these divs to accept dynamic values from our state. */}
 
@@ -36,7 +41,7 @@ function App() {
           <div className="timer">{time}</div>
           {/* <div className="timer">00:03</div> */}
           <div className="away">
-            <h2 className="away__name">Tigers</h2>
+            <h2 className="away__name">{awayName}</h2>
             <div className="away__score">{awayScore}</div>
           </div>
         </div>
@@ -49,13 +54,14 @@ function App() {
           <button className="homeButtons__fieldGoal" onClick={() => {setHomeScore(homeScore + 3)}}>Home Field Goal</button>
           <button className="homeButtons__extraPoint" onClick={() => {setHomeScore(homeScore + 1)}}>Home Extra Point</button>
           <button className="homeButtons__customHomeScore" onClick={() => {setHomeScore(homeScore + 1)}}>Set Home Score</button>
-
+          <button className="homeButtons__homeName" onClick={() => {setHomeNameStatus(!homeNameStatus)}} >Set Home Team Name</button>
         </div>
         <div className="awayButtons">
           <button className="awayButtons__touchdown" onClick={() => {setAwayScore(awayScore + 6)}}>Away Touchdown</button>
           <button className="awayButtons__fieldGoal" onClick={() => {setAwayScore(awayScore + 3)}}>Away Field Goal</button>
           <button className="awayButtons__extraPoint"onClick={() => {setAwayScore(awayScore + 1)}}>Away Extra Point</button>
           <button className="awayButtons__customAwayScore" onClick={() => {setAwayScore(awayScore + 1)}}>Set Away Score</button>
+          <button className="awayButtons__awayName" onClick={() => setAwayNameStatus(!awayNameStatus)}>Set Away Team Name</button>
 
         </div>
         <div className="otherButtons">
@@ -97,13 +103,12 @@ function App() {
           <button className="otherButton">Stop/Start Time</button>
         </div>
       </section>
-      {console.log("toGo: ",toGo)};
       <section className="forms">
         {toGoStatus ? <ToGoForm toGo={toGo} setToGo={setToGo} /> : null}
         {ballOnStatus ? <BallOnForm ballOn={ballOn} setBallOn={setBallOn} /> : null}
         {timeStatus ? <SetTimeForm time={time} setTime={setTime} /> : null}
-
-
+        {homeNameStatus ? <HomeNameForm setHomeName={setHomeName}/> : null}
+        {awayNameStatus ? <AwayNameForm setAwayName={setAwayName} /> : null}
       </section>
     </div>
   );

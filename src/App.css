@@ -125,15 +125,18 @@
 .homeButtons__fieldGoal,
 .homeButtons__extraPoint,
 .homeButtons__customHomeScore,
+.homeButtons__homeName,
 .awayButtons__touchdown,
 .awayButtons__fieldGoal,
 .awayButtons__extraPoint,
 .awayButtons__customAwayScore,
+.awayButtons__awayName,
 .otherButton {
   margin: 1rem;
   border-radius: 4px;
 }
 form {
+  /* justify-self: center; */
   margin: 0 auto;
-  width: 50%;
+  width: 33%;
 }
