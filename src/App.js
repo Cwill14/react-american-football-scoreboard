@@ -7,6 +7,8 @@ import BallOnForm from "./Components/BallOnForm";
 import SetTimeForm from "./Components/SetTimeForm";
 import HomeNameForm from "./Components/HomeNameForm";
 import AwayNameForm from "./Components/AwayNameForm";
+import HomeScoreForm from "./Components/HomeScoreForm";
+import AwayScoreForm from "./Components/AwayScoreForm";
 
 
 function App() {
@@ -23,9 +25,10 @@ function App() {
   const [timeStatus, setTimeStatus] = useState(false);
   const [homeName, setHomeName] = useState("Home");
   const [homeNameStatus, setHomeNameStatus] = useState(false);
+  const [homeScoreStatus, setHomeScoreStatus] = useState(false);
   const [awayName, setAwayName] = useState("Away");
   const [awayNameStatus, setAwayNameStatus] = useState(false);
-
+  const [awayScoreStatus, setAwayScoreStatus] = useState(false);
 
   return (
     <div className="container">
@@ -53,14 +56,14 @@ function App() {
           <button className="homeButtons__touchdown" onClick={() => {setHomeScore(homeScore + 6)}}>Home Touchdown</button>
           <button className="homeButtons__fieldGoal" onClick={() => {setHomeScore(homeScore + 3)}}>Home Field Goal</button>
           <button className="homeButtons__extraPoint" onClick={() => {setHomeScore(homeScore + 1)}}>Home Extra Point</button>
-          <button className="homeButtons__customHomeScore" onClick={() => {setHomeScore(homeScore + 1)}}>Set Home Score</button>
+          <button className="homeButtons__customHomeScore" onClick={() => {setHomeScoreStatus(!homeScoreStatus)}}>Set Home Score</button>
           <button className="homeButtons__homeName" onClick={() => {setHomeNameStatus(!homeNameStatus)}} >Set Home Team Name</button>
         </div>
         <div className="awayButtons">
           <button className="awayButtons__touchdown" onClick={() => {setAwayScore(awayScore + 6)}}>Away Touchdown</button>
           <button className="awayButtons__fieldGoal" onClick={() => {setAwayScore(awayScore + 3)}}>Away Field Goal</button>
           <button className="awayButtons__extraPoint"onClick={() => {setAwayScore(awayScore + 1)}}>Away Extra Point</button>
-          <button className="awayButtons__customAwayScore" onClick={() => {setAwayScore(awayScore + 1)}}>Set Away Score</button>
+          <button className="awayButtons__customAwayScore" onClick={() => {setAwayScoreStatus(!awayScoreStatus)}}>Set Away Score</button>
           <button className="awayButtons__awayName" onClick={() => setAwayNameStatus(!awayNameStatus)}>Set Away Team Name</button>
 
         </div>
@@ -111,6 +114,8 @@ function App() {
         {timeStatus ? <SetTimeForm time={time} setTime={setTime} /> : null}
         {homeNameStatus ? <HomeNameForm setHomeName={setHomeName}/> : null}
         {awayNameStatus ? <AwayNameForm setAwayName={setAwayName} /> : null}
+        {homeScoreStatus ? <HomeScoreForm setHomeScore={setHomeScore} /> : null}
+        {awayScoreStatus ? <AwayScoreForm setAwayScore={setAwayScore} /> : null}
       </section>
     </div>
   );
