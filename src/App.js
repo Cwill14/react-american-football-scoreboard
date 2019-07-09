@@ -13,7 +13,7 @@ function App() {
   const [awayScore, setAwayScore] = useState(0);
   const [down, setDown] = useState(1);
   const [quarter, setQuarter] = useState(1);
-  const [toGo, setToGo] = useState(5);
+  const [toGo, setToGo] = useState(1);
   const [toGoStatus, setToGoStatus] = useState(false);
   const [ballOn, setBallOn] = useState(35);
   const [ballOnStatus, setBallOnStatus] = useState(false);
@@ -70,9 +70,9 @@ function App() {
               setHomeScore(homeScore * 0);
               setAwayScore(awayScore * 0);
               setToGo(1);
-              setBallOn(ballOn / ballOn);
-              setDown(down / down);
-              setQuarter(quarter / quarter);
+              setBallOn(1);
+              setDown(1);
+              setQuarter(1);
               // setTime(time * 0);
               }}
             >Reset Scoreboard
@@ -97,6 +97,7 @@ function App() {
           <button className="otherButton">Stop/Start Time</button>
         </div>
       </section>
+      {console.log("toGo: ",toGo)};
       <section className="forms">
         {toGoStatus ? <ToGoForm toGo={toGo} setToGo={setToGo} /> : null}
         {ballOnStatus ? <BallOnForm ballOn={ballOn} setBallOn={setBallOn} /> : null}

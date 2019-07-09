@@ -104,8 +104,16 @@
   border-radius: 4px;
   padding: 1.6rem;
   border: 1px solid white;
+  overflow: hidden;
 }
-
+.valueInches {
+  width: 10.5rem;
+  height: 56px;
+  /* text-align: left; */
+  font-size: 3.5rem;
+  display: flex;
+  align-items: center;
+}
 .buttons {
   width: 66%;
   margin: 0 auto;
