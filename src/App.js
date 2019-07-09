@@ -29,6 +29,9 @@ function App() {
   const [awayName, setAwayName] = useState("Away");
   const [awayNameStatus, setAwayNameStatus] = useState(false);
   const [awayScoreStatus, setAwayScoreStatus] = useState(false);
+  const [homeTimeouts, setHomeTimeouts] = useState(3);
+  const [awayTimeouts, setAwayTimeouts] = useState(3);
+  
 
   return (
     <div className="container">
@@ -40,12 +43,14 @@ function App() {
             {/* TODO STEP 3 - We need to change the hardcoded values in these divs to accept dynamic values from our state. */}
 
             <div className="home__score">{homeScore}</div>
+            <div className="home__timeouts">Timeouts: {homeTimeouts}</div>
           </div>
           <div className="timer">{time}</div>
           {/* <div className="timer">00:03</div> */}
           <div className="away">
             <h2 className="away__name">{awayName}</h2>
             <div className="away__score">{awayScore}</div>
+            <div className="away__timeouts">Timeouts: {awayTimeouts}</div>
           </div>
         </div>
         <BottomRow down={down} quarter={quarter} toGo={toGo} ballOn={ballOn} />
@@ -56,6 +61,8 @@ function App() {
           <button className="homeButtons__touchdown" onClick={() => {setHomeScore(homeScore + 6)}}>Home Touchdown</button>
           <button className="homeButtons__fieldGoal" onClick={() => {setHomeScore(homeScore + 3)}}>Home Field Goal</button>
           <button className="homeButtons__extraPoint" onClick={() => {setHomeScore(homeScore + 1)}}>Home Extra Point</button>
+          <button className="homeButtons__safety" onClick={() => {setHomeScore(homeScore + 2)}}>Home Safety</button>
+          <button className="homeButtons__timeout" onClick={() => {setHomeTimeouts(homeTimeouts > 0 ? homeTimeouts - 1 : 0)}}>Use Home Timeout</button>
           <button className="homeButtons__customHomeScore" onClick={() => {setHomeScoreStatus(!homeScoreStatus)}}>Set Home Score</button>
           <button className="homeButtons__homeName" onClick={() => {setHomeNameStatus(!homeNameStatus)}} >Set Home Team Name</button>
         </div>
@@ -63,9 +70,10 @@ function App() {
           <button className="awayButtons__touchdown" onClick={() => {setAwayScore(awayScore + 6)}}>Away Touchdown</button>
           <button className="awayButtons__fieldGoal" onClick={() => {setAwayScore(awayScore + 3)}}>Away Field Goal</button>
           <button className="awayButtons__extraPoint"onClick={() => {setAwayScore(awayScore + 1)}}>Away Extra Point</button>
+          <button className="awayButtons__safety" onClick={() => {setAwayScore(awayScore + 2)}}>Away Safety</button>
+          <button className="awayButtons__timeout" onClick={() => {setAwayTimeouts(awayTimeouts > 0 ? awayTimeouts - 1 : 0)}}>Use Away Timeout</button>
           <button className="awayButtons__customAwayScore" onClick={() => {setAwayScoreStatus(!awayScoreStatus)}}>Set Away Score</button>
           <button className="awayButtons__awayName" onClick={() => setAwayNameStatus(!awayNameStatus)}>Set Away Team Name</button>
-
         </div>
         <div className="otherButtons">
           <button className="otherButton" onClick={() => {
@@ -84,6 +92,8 @@ function App() {
               setQuarter(1);
               setHomeName("Home");
               setAwayName("Away");
+              setHomeTimeouts(3);
+              setAwayTimeouts(3);
               // setTime(time * 0);
               }}
             >Reset Scoreboard

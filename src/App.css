@@ -131,6 +131,10 @@
 .awayButtons__extraPoint,
 .awayButtons__customAwayScore,
 .awayButtons__awayName,
+.homeButtons__safety,
+.awayButtons__safety,
+.homeButtons__timeout,
+.awayButtons__timeout,
 .otherButton {
   margin: 1rem;
   border-radius: 4px;
