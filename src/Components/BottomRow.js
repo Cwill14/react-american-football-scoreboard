@@ -10,7 +10,10 @@ const BottomRow = props => {
       </div>
       <div className="toGo">
         <h3 className="toGo__title">To Go</h3>
-        {props.toGo >= 1 ? <div className="toGo__value">{props.toGo}</div> : <div className="toGo__value valueInches">{props.toGo}</div>}
+        {props.toGo >= 1 ? 
+          <div className="toGo__value">{props.toGo}</div> :
+          <div className="toGo__value valueInches">{props.toGo}</div>
+        }
       </div>
       <div className="ballOn">
         <h3 className="ballOn__title">Ball on</h3>
