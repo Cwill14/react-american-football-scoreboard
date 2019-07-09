@@ -77,52 +77,128 @@ function App() {
       <section className="buttons">
         <div className="homeButtons">
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button className="homeButtons__touchdown gray" onClick={() => {setHomeScore(homeScore + 6)}}>Home Touchdown</button>
-          <button className="homeButtons__fieldGoal gray" onClick={() => {setHomeScore(homeScore + 3)}}>Home Field Goal</button>
-          <button className="homeButtons__extraPoint gray" onClick={() => {setHomeScore(homeScore + 1)}}>Home Extra Point</button>
-          <button className="homeButtons__safety gray" onClick={() => {setHomeScore(homeScore + 2)}}>Home Safety</button>
-          <button className="homeButtons__timeout gray" onClick={() => {setHomeTimeouts(homeTimeouts > 0 ? homeTimeouts - 1 : 0)}}>Use Home Timeout</button>
-          <button className="homeButtons__setTimeout gray" onClick={() => {setHomeTimeoutsStatus(!homeTimeoutsStatus)}}>Set Home Timeouts</button>
-          <button className="homeButtons__customHomeScore gray" onClick={() => {setHomeScoreStatus(!homeScoreStatus)}}>Set Home Score</button>
-          <button className="homeButtons__homeName gray" onClick={() => {setHomeNameStatus(!homeNameStatus)}} >Set Home Name</button>
+          <button 
+            className="homeButtons__touchdown gray" 
+            onClick={() => {setHomeScore(homeScore + 6)}}>
+              Home Touchdown
+          </button>
+          <button 
+            className="homeButtons__fieldGoal gray" 
+            onClick={() => {setHomeScore(homeScore + 3)}}>
+              Home Field Goal
+          </button>
+          <button 
+            className="homeButtons__extraPoint gray" 
+            onClick={() => {setHomeScore(homeScore + 1)}}>
+              Home Extra Point
+          </button>
+          <button 
+            className="homeButtons__safety gray" 
+            onClick={() => {setHomeScore(homeScore + 2)}}>
+              Home Safety
+          </button>
+          <button 
+            className="homeButtons__timeout gray" 
+            onClick={() => {setHomeTimeouts(homeTimeouts > 0 ? homeTimeouts - 1 : 0)}}>
+              Use Home Timeout
+          </button>
+          <button 
+            className="homeButtons__setTimeout gray" 
+            onClick={() => {setHomeTimeoutsStatus(!homeTimeoutsStatus)}}>
+              Set Home Timeouts
+          </button>
+          <button 
+            className="homeButtons__customHomeScore gray" 
+            onClick={() => {setHomeScoreStatus(!homeScoreStatus)}}>
+              Set Home Score
+          </button>
+          <button 
+            className="homeButtons__homeName gray" 
+            onClick={() => {setHomeNameStatus(!homeNameStatus)}}>
+              Set Home Name
+          </button>
         </div>
         <div className="awayButtons">
-          <button className="awayButtons__touchdown orange" onClick={() => {setAwayScore(awayScore + 6)}}>Away Touchdown</button>
-          <button className="awayButtons__fieldGoal orange" onClick={() => {setAwayScore(awayScore + 3)}}>Away Field Goal</button>
-          <button className="awayButtons__extraPoint orange"onClick={() => {setAwayScore(awayScore + 1)}}>Away Extra Point</button>
-          <button className="awayButtons__safety orange" onClick={() => {setAwayScore(awayScore + 2)}}>Away Safety</button>
-          <button className="awayButtons__timeout orange" onClick={() => {setAwayTimeouts(awayTimeouts > 0 ? awayTimeouts - 1 : 0)}}>Use Away Timeout</button>
-          <button className="awayButtons__setTimeout orange" onClick={() => {setAwayTimeoutsStatus(!awayTimeoutsStatus)}}>Set Away Timeouts</button>
-          <button className="awayButtons__customAwayScore orange" onClick={() => {setAwayScoreStatus(!awayScoreStatus)}}>Set Away Score</button>
-          <button className="awayButtons__awayName orange" onClick={() => setAwayNameStatus(!awayNameStatus)}>Set Away Name</button>
+          <button 
+            className="awayButtons__touchdown orange" 
+            onClick={() => {setAwayScore(awayScore + 6)}}>
+              Away Touchdown
+          </button>
+          <button 
+            className="awayButtons__fieldGoal orange" 
+            onClick={() => {setAwayScore(awayScore + 3)}}>
+              Away Field Goal
+          </button>
+          <button 
+            className="awayButtons__extraPoint orange"
+            onClick={() => {setAwayScore(awayScore + 1)}}>
+              Away Extra Point
+          </button>
+          <button 
+            className="awayButtons__safety orange" 
+            onClick={() => {setAwayScore(awayScore + 2)}}>
+              Away Safety
+          </button>
+          <button 
+            className="awayButtons__timeout orange" 
+            onClick={() => {setAwayTimeouts(awayTimeouts > 0 ? awayTimeouts - 1 : 0)}}>
+              Use Away Timeout
+          </button>
+          <button 
+            className="awayButtons__setTimeout orange" 
+            onClick={() => {setAwayTimeoutsStatus(!awayTimeoutsStatus)}}>
+              Set Away Timeouts
+          </button>
+          <button 
+            className="awayButtons__customAwayScore orange" 
+            onClick={() => {setAwayScoreStatus(!awayScoreStatus)}}>
+              Set Away Score
+          </button>
+          <button 
+            className="awayButtons__awayName orange" 
+            onClick={() => setAwayNameStatus(!awayNameStatus)}>
+              Set Away Name
+          </button>
         </div>
         <div className="otherButtons">
-          <button className="otherButton blue" onClick={() => {down < 4 ? setDown(down + 1) : setDown(down / down)}}>Cycle Down</button>
           <button 
             className="otherButton blue" 
-            onClick={() => {quarter < 4 ? setQuarter(quarter + 1) : setQuarter(quarter / quarter)}}
-            >Cycle Quarter
+            onClick={() => {down < 4 ? setDown(down + 1) : setDown(down / down)}}>
+              Cycle Down
           </button>
           <button 
             className="otherButton blue" 
-            onClick={() => {setToGoStatus(!toGoStatus)}}
-            >Set To Go
+            onClick={() => {quarter < 4 ? setQuarter(quarter + 1) : setQuarter(quarter / quarter)}}>
+              Cycle Quarter
           </button>
           <button 
             className="otherButton blue" 
-            onClick={() => {setBallOnStatus(!ballOnStatus)}}
-            >Set Ball On
+            onClick={() => {setToGoStatus(!toGoStatus)}}>
+              Set To Go
+          </button>
+          <button 
+            className="otherButton blue" 
+            onClick={() => {setBallOnStatus(!ballOnStatus)}}>
+              Set Ball On
           </button>
           <button 
             className={`otherButton stopStart ${timeStatus ? "active" : "inactive"}`} 
             onClick={() => {setTimeStatus(!timeStatus)}}>
-            {timeStatus ? "Stop Clock" : "Start Clock"}
+              {timeStatus ? "Stop Clock" : "Start Clock"}
           </button>
-          <button className="otherButton blue" onClick={() => {setManualTimeStatus(!manualTimeStatus)}}>Set Clock Time</button>
-          <button className="otherButton scary" onClick={() => {
-            setTime(900);
-            setTimeStatus(false);
-          }}>Reset Clock</button>
+          <button 
+            className="otherButton blue" 
+            onClick={() => {setManualTimeStatus(!manualTimeStatus)}}>
+              Set Clock Time
+          </button>
+          <button 
+            className="otherButton scary" 
+            onClick={() => {
+              setTime(900);
+              setTimeStatus(false);
+            }}>
+              Reset Clock
+          </button>
           <button className="otherButton scary" onClick={() => {
             setHomeScore(homeScore * 0);
             setAwayScore(awayScore * 0);
@@ -151,21 +227,48 @@ function App() {
               setAwayTimeouts(3);
               setTime(900);
               setTimeStatus(false);
-              }}
-            >Reset Scoreboard
+              }}>
+                Reset Scoreboard
           </button>
         </div>
       </section>
       <section className="forms">
-        {toGoStatus ? <ToGoForm setToGo={setToGo} setToGoStatus={setToGoStatus} /> : null}
-        {ballOnStatus ? <BallOnForm setBallOn={setBallOn} setBallOnStatus={setBallOnStatus} /> : null}
-        {manualTimeStatus ? <SetTimeForm setTime={setTime} setManualTimeStatus={setManualTimeStatus} /> : null}
-        {homeNameStatus ? <HomeNameForm setHomeName={setHomeName} setHomeNameStatus={setHomeNameStatus} /> : null}
-        {awayNameStatus ? <AwayNameForm setAwayName={setAwayName} setAwayNameStatus={setAwayNameStatus} /> : null}
-        {homeScoreStatus ? <HomeScoreForm setHomeScore={setHomeScore} setHomeScoreStatus={setHomeScoreStatus} /> : null}
-        {awayScoreStatus ? <AwayScoreForm setAwayScore={setAwayScore} setAwayScoreStatus={setAwayScoreStatus} /> : null}
-        {homeTimeoutsStatus ? <SetHomeTimeoutsForm setHomeTimeouts={setHomeTimeouts} setHomeTimeoutsStatus={setHomeTimeoutsStatus} /> : null}
-        {awayTimeoutsStatus ? <SetAwayTimeoutsForm setAwayTimeouts={setAwayTimeouts} setAwayTimeoutsStatus={setAwayTimeoutsStatus} /> : null}
+        {toGoStatus ? 
+          <ToGoForm setToGo={setToGo} setToGoStatus={setToGoStatus} /> 
+          : null
+        }
+        {ballOnStatus ? 
+          <BallOnForm setBallOn={setBallOn} setBallOnStatus={setBallOnStatus} /> 
+          : null
+        }
+        {manualTimeStatus ? 
+          <SetTimeForm setTime={setTime} setManualTimeStatus={setManualTimeStatus} /> 
+          : null
+        }
+        {homeNameStatus ? 
+          <HomeNameForm setHomeName={setHomeName} setHomeNameStatus={setHomeNameStatus} /> 
+          : null
+        }
+        {awayNameStatus ? 
+          <AwayNameForm setAwayName={setAwayName} setAwayNameStatus={setAwayNameStatus} /> 
+          : null
+        }
+        {homeScoreStatus ? 
+          <HomeScoreForm setHomeScore={setHomeScore} setHomeScoreStatus={setHomeScoreStatus} /> 
+          : null
+        }
+        {awayScoreStatus ? 
+          <AwayScoreForm setAwayScore={setAwayScore} setAwayScoreStatus={setAwayScoreStatus} /> 
+          : null
+        }
+        {homeTimeoutsStatus ? 
+          <SetHomeTimeoutsForm setHomeTimeouts={setHomeTimeouts} setHomeTimeoutsStatus={setHomeTimeoutsStatus} /> 
+          : null
+        }
+        {awayTimeoutsStatus ? 
+          <SetAwayTimeoutsForm setAwayTimeouts={setAwayTimeouts} setAwayTimeoutsStatus={setAwayTimeoutsStatus} /> 
+          : null
+          }
       </section>
     </div>
   );
