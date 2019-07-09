@@ -137,6 +137,9 @@
 }
 form {
   /* justify-self: center; */
-  margin: 0 auto;
+  margin: 0 auto 3rem;
   width: 33%;
+}
+form input {
+  margin: 0 1rem;
 }

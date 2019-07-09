@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const ToGoForm = props => {
-    const [inputValue, setInputValue] = useState(0);
+    const [inputValue, setInputValue] = useState();
 
 
     const checkInput = input => props.setToGo(input > 99 ? 99 : input < 1 ? "inches" : input)

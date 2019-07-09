@@ -15,9 +15,9 @@ function App() {
   const [awayScore, setAwayScore] = useState(0);
   const [down, setDown] = useState(1);
   const [quarter, setQuarter] = useState(1);
-  const [toGo, setToGo] = useState(1);
+  const [toGo, setToGo] = useState(10);
   const [toGoStatus, setToGoStatus] = useState(false);
-  const [ballOn, setBallOn] = useState(50);
+  const [ballOn, setBallOn] = useState(1);
   const [ballOnStatus, setBallOnStatus] = useState(false);
   const [time, setTime] = useState(10.00);
   const [timeStatus, setTimeStatus] = useState(false);
@@ -75,10 +75,12 @@ function App() {
             onClick={() => {
               setHomeScore(homeScore * 0);
               setAwayScore(awayScore * 0);
-              setToGo(1);
+              setToGo(10);
               setBallOn(1);
               setDown(1);
               setQuarter(1);
+              setHomeName("Home");
+              setAwayName("Away");
               // setTime(time * 0);
               }}
             >Reset Scoreboard

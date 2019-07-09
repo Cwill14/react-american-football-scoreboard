@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const BallOnForm = props => {
-    const [inputValue, setInputValue] = useState(0);
+    const [inputValue, setInputValue] = useState();
 
 
     const checkInput = input => props.setBallOn(input > 50 ? 50 : input < 1 ? 1 : input)
