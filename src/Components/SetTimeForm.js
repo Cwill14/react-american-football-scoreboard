@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
 
-const SetTImeForm = props => {
-    const [inputValue, handleChange] = useState(0);
+const SetTimeForm = props => {
+    const [inputValue, setInputValue] = useState();
+
+
+    const checkInput = input => props.setTime(input > 900 ? 900 : input < 0 ? 0 : input)
 
     return (
         <form onSubmit={e => {
             e.preventDefault();
-            console.log(e.target.value);
-            props.setTime(
-                // (props.toGo * 0) + inputValue)
-                // e.target.value);
-                inputValue)
+           checkInput(inputValue);
         }}>
-            <p>set time " here</p>
-            <input type="number" placeholder="time" value={inputValue} />
-            <button>Update Time</button>
+            <p>set Clock Time here</p>
+            <input type="number" placeholder="clock time" value={inputValue} onChange={e => {
+                setInputValue(e.target.value)
+            }}/>
+            <button>Update Clock Time</button>
         </form>
     );
+    
 };
 
-export default SetTImeForm;
+export default SetTimeForm;

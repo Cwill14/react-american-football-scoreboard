@@ -46,7 +46,7 @@ button {
 
 button:hover,
 button:focus {
-  background: #a2272d;
+  background: orange;
 }
 
 button:focus {
@@ -55,5 +55,5 @@ button:focus {
 }
 
 button:active {
-  transform: scale(0.99);
+  transform: scale(0.85);
 }

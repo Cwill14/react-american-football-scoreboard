@@ -30,7 +30,7 @@
   place-items: center;
   border: 3px solid white;
   border-radius: 0.5rem;
-  width: 15rem;
+  width: 18rem;
 }
 
 .home {
@@ -146,4 +146,51 @@ form {
 }
 form input {
   margin: 0 1rem;
+}
+.active {
+  background-color: var(--red);
+}
+.active:hover, .active:focus {
+  background: maroon;
+}
+.inactive {
+  background-color: green;
+}
+.inactive:hover, .inactive:focus {
+  background: #0b5402;
+}
+.scary, .scary:focus {
+  background: var(--red);
+}
+.scary:hover {
+  background: #ff7f7e;
+}
+.gray, .gray:focus {
+  background: #656565;
+}
+.gray:hover {
+  background: #a7a7a7;
+}
+.orange {
+  background: #af750a;
+}
+.blue, .blue:focus {
+  background: blue;
+}
+.blue:hover {
+  background: royalblue;
+}
+.active:hover, 
+.active:focus, 
+.inactive:hover, 
+.inactive:focus,
+.scary:hover,
+.scary:focus,
+.gray:hover,
+.gray:focus,
+.orange:hover,
+.orange:focus,
+.blue:hover,
+.blue:focus {
+  outline: none;
 }
