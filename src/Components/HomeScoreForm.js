@@ -10,6 +10,7 @@ const HomeScoreForm = props => {
         <form onSubmit={e => {
             e.preventDefault();
            checkInput(inputValue);
+           props.setHomeScoreStatus(false);
         }}>
             <p>set Home Team Score here</p>
             <input type="number" placeholder="home team score" value={inputValue} onChange={e => {

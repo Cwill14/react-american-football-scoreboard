@@ -10,6 +10,7 @@ const BallOnForm = props => {
         <form onSubmit={e => {
             e.preventDefault();
            checkInput(inputValue);
+           props.setBallOnStatus(false);
         }}>
             <p>set "To Go" here</p>
             <input type="number" placeholder="ball on" value={inputValue} onChange={e => {

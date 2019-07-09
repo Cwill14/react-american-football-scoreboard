@@ -139,13 +139,13 @@ function App() {
         </div>
       </section>
       <section className="forms">
-        {toGoStatus ? <ToGoForm setToGo={setToGo} /> : null}
-        {ballOnStatus ? <BallOnForm setBallOn={setBallOn} /> : null}
-        {manualTimeStatus ? <SetTimeForm setTime={setTime} /> : null}
-        {homeNameStatus ? <HomeNameForm setHomeName={setHomeName}/> : null}
-        {awayNameStatus ? <AwayNameForm setAwayName={setAwayName} /> : null}
-        {homeScoreStatus ? <HomeScoreForm setHomeScore={setHomeScore} /> : null}
-        {awayScoreStatus ? <AwayScoreForm setAwayScore={setAwayScore} /> : null}
+        {toGoStatus ? <ToGoForm setToGo={setToGo} setToGoStatus={setToGoStatus} /> : null}
+        {ballOnStatus ? <BallOnForm setBallOn={setBallOn} setBallOnStatus={setBallOnStatus} /> : null}
+        {manualTimeStatus ? <SetTimeForm setTime={setTime} setManualTimeStatus={setManualTimeStatus} /> : null}
+        {homeNameStatus ? <HomeNameForm setHomeName={setHomeName} setHomeNameStatus={setHomeNameStatus} /> : null}
+        {awayNameStatus ? <AwayNameForm setAwayName={setAwayName} setAwayNameStatus={setAwayNameStatus} /> : null}
+        {homeScoreStatus ? <HomeScoreForm setHomeScore={setHomeScore} setHomeScoreStatus={setHomeScoreStatus} /> : null}
+        {awayScoreStatus ? <AwayScoreForm setAwayScore={setAwayScore} setAwayScoreStatus={setAwayScoreStatus} /> : null}
       </section>
     </div>
   );

@@ -10,6 +10,7 @@ const HomeNameForm = props => {
         <form onSubmit={e => {
             e.preventDefault();
            checkInput(inputValue);
+           props.setHomeNameStatus(false);
         }}>
             <p>set Home Team Name here</p>
             <input type="text" placeholder="home team name" value={inputValue} onChange={e => {

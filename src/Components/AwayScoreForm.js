@@ -10,6 +10,7 @@ const AwayScoreForm = props => {
         <form onSubmit={e => {
             e.preventDefault();
            checkInput(inputValue);
+           props.setAwayScoreStatus(false);
         }}>
             <p>set Away Team Score here</p>
             <input type="number" placeholder="away team score" value={inputValue} onChange={e => {

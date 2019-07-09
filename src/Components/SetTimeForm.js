@@ -10,6 +10,7 @@ const SetTimeForm = props => {
         <form onSubmit={e => {
             e.preventDefault();
            checkInput(inputValue);
+           props.setManualTimeStatus(false);
         }}>
             <p>set Clock Time here</p>
             <input type="number" placeholder="clock time" value={inputValue} onChange={e => {

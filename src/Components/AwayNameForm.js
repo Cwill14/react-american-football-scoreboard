@@ -10,6 +10,7 @@ const AwayNameForm = props => {
         <form onSubmit={e => {
             e.preventDefault();
            checkInput(inputValue);
+           props.setAwayNameStatus(false);
         }}>
             <p>set Away Team Name here</p>
             <input type="text" placeholder="away team name" value={inputValue} onChange={e => {

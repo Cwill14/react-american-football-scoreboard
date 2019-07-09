@@ -64,6 +64,7 @@
 }
 
 .timer {
+  width: 20rem;
   font-family: "Ozone";
   font-size: 9rem;
   padding: 2rem;

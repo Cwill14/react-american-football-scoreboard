@@ -10,6 +10,7 @@ const ToGoForm = props => {
         <form onSubmit={e => {
             e.preventDefault();
            checkInput(inputValue);
+           props.setToGoStatus(false);
         }}>
             <p>set "To Go" here</p>
             <input type="number" placeholder="to go" value={inputValue} onChange={e => {
