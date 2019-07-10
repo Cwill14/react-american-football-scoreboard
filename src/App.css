@@ -5,7 +5,7 @@
 
 .scoreboard {
   width: 58%;
-  margin: 10rem auto;
+  margin: 10rem auto 1rem;
   background-color: #0b5402;
   color: white;
   border-radius: 0.5rem;
@@ -30,7 +30,7 @@
   place-items: center;
   border: 3px solid white;
   border-radius: 0.5rem;
-  width: 15rem;
+  width: 18rem;
 }
 
 .home {
@@ -64,6 +64,7 @@
 }
 
 .timer {
+  width: 20rem;
   font-family: "Ozone";
   font-size: 9rem;
   padding: 2rem;
@@ -104,19 +105,102 @@
   border-radius: 4px;
   padding: 1.6rem;
   border: 1px solid white;
+  overflow: hidden;
 }
-
+.valueInches {
+  width: 10.5rem;
+  height: 56px;
+  /* text-align: left; */
+  font-size: 3.5rem;
+  display: flex;
+  align-items: center;
+}
 .buttons {
-  width: 50%;
+  width: 66%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .homeButtons__touchdown,
 .homeButtons__fieldGoal,
+.homeButtons__extraPoint,
+.homeButtons__customHomeScore,
+.homeButtons__homeName,
 .awayButtons__touchdown,
-.awayButtons__fieldGoal {
+.awayButtons__fieldGoal,
+.awayButtons__extraPoint,
+.awayButtons__customAwayScore,
+.awayButtons__awayName,
+.homeButtons__safety,
+.awayButtons__safety,
+.homeButtons__timeout,
+.awayButtons__timeout,
+.homeButtons__setTimeout,
+.awayButtons__setTimeout,
+.otherButton {
   margin: 1rem;
   border-radius: 4px;
+}
+form {
+  /* justify-self: center; */
+  margin: 0 auto 3rem;
+  width: 33%;
+}
+form p {
+  color: white;
+}
+form input {
+  margin: 0 1rem;
+  transform: scale(1.2);
+}
+form button {
+  margin-left: 1rem;
+}
+.active {
+  background-color: var(--red);
+}
+.active:hover, .active:focus {
+  background: maroon;
+}
+.inactive {
+  background-color: green;
+}
+.inactive:hover, .inactive:focus {
+  background: #0b5402;
+}
+.scary, .scary:focus {
+  background: var(--red);
+}
+.scary:hover {
+  background: #ff7f7e;
+}
+.gray, .gray:focus {
+  background: #656565;
+}
+.gray:hover {
+  background: #a7a7a7;
+}
+.orange {
+  background: #af750a;
+}
+.blue, .blue:focus {
+  background: blue;
+}
+.blue:hover {
+  background: royalblue;
+}
+.active:hover, 
+.active:focus, 
+.inactive:hover, 
+.inactive:focus,
+.scary:hover,
+.scary:focus,
+.gray:hover,
+.gray:focus,
+.orange:hover,
+.orange:focus,
+.blue:hover,
+.blue:focus {
+  outline: none;
 }
